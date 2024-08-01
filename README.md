@@ -1,45 +1,53 @@
-# Project_Failed-Orders_EDA-project
-Gett, previously known as GetTaxi, is an Israeli-developed technology platform solely focused on corporate Ground Transportation Management (GTM). They have an application where clients can order taxis, and drivers can accept their rides (offers). At the moment, when the client clicks the Order button in the application, the matching system searches for the most relevant drivers and offers them the order. In this task, we would like to investigate some matching metrics for orders that did not completed successfully, i.e., the customer didn't end up getting a car.
 
-Assignment
+# Tesla Stock Price Analysis
 
-Please complete the following tasks.
+This project analyzes the historical stock prices of Tesla (TSLA) using Python libraries such as `yfinance`, `pandas`, and `matplotlib`. The analysis includes data fetching, preprocessing, and various time series calculations.
 
+## Table of Contents
 
-1.Build up distribution of orders according to reasons for failure: cancellations before and after driver assignment, and reasons for order rejection. Analyse the resulting plot. Which category has the highest number of orders?
+1. [Introduction](#introduction)
+2. [Data Fetching](#data-fetching)
+3. [Data Preprocessing](#data-preprocessing)
+4. [Time Series Analysis](#time-series-analysis)
+    - [Rolling Window Calculations](#rolling-window-calculations)
+    - [Resampling](#resampling)
+5. [Visualization](#visualization)
+6. [Requirements](#requirements)
+7. [Usage](#usage)
+8. [Conclusion](#conclusion)
 
-2.Plot the distribution of failed orders by hours. Is there a trend that certain hours have an abnormally high proportion of one category or another? What hours are the biggest fails? How can this be explained?
+## Introduction
 
-3.Plot the average time to cancellation with and without driver, by the hour. If there are any outliers in the data, it would be better to remove them. Can we draw any conclusions from this plot?
+This project aims to provide insights into Tesla's stock price movements by performing various time series analysis techniques. We will fetch historical stock data, preprocess it, and then apply rolling window calculations and resampling to extract meaningful statistics.
 
-4.Plot the distribution of average ETA by hours. How can this plot be explained?
+## Data Fetching
 
-#Data Description
-We have two data sets: data_orders and data_offers, both being stored in a CSV format. 
+We use the `yfinance` library to fetch historical stock data for Tesla (TSLA) from Yahoo Finance.
 
-The data_orders data set contains the following columns:
+`import yfinance as yf`
 
-order_datetime - time of the order
+# Data Preprocessing
+The fetched data includes columns such as 'Open', 'High', 'Low', 'Close', 'Adj Close', and 'Volume'. We ensure the data is clean and ready for analysis.
 
-origin_longitude - longitude of the order
+# Time Series Analysis
+## Rolling Window Calculations
+We perform rolling window calculations to compute statistics over a specified window of time.
+## Resampling
+We resample the data to calculate annual minimum values,mean and qurately and Business year (min,max,mean values).
+# Visualization
+We use matplotlib to visualize the data, making it easier to understand trends and patterns.
+# Requirements
+#### Python 3.x
+#### yfinance library
+#### pandas library
+#### matplotlib library
+# Usage
+ `Clone the repository`.
 
-origin_latitude - latitude of the order
+ `Install the required libraries`.
 
-m_order_eta - time before order arrival
+ `Run the Jupyter notebook or Python script to fetch the data and perform the analysis`.
+ # Conclusion
+This project provides a framework for analyzing stock price data using time series techniques. By fetching and preprocessing the data, and applying rolling window calculations and resampling, we can gain valuable insights into stock price movements over time.
 
-order_gk - order number
-
-order_status_key - status, an enumeration consisting of the following mapping:
-
-4 - cancelled by client,
-9 - cancelled by system, i.e., a reject
-
-is_driver_assigned_key - whether a driver has been assigned
-
-cancellation_time_in_seconds - how many seconds passed before cancellation
-
-#The data_offers data set is a simple map with 2 columns:
-
-order_gk - order number, associated with the same column from the orders data set
-
-offer_id - ID of an offer
+ 
